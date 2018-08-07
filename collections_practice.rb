@@ -20,7 +20,7 @@ end
 def swap_elements_from_to(array, from, to)
   temp = array[from]
   array[from] = array[to]
-  array[to] = array[from]
+  array[to] = temp
   array
 end
 
