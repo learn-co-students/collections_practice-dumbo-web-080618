@@ -36,12 +36,20 @@ def kesha_maker(array)
   return array
 end
 
+def find_a(array)
+  array.find_all {|string| string.start_with?('a')}
+end
+
+def sum_array(array)
+  array.inject{|sum, n| sum + n }
+end
+
 def add_s(array)
   array.each_with_index.collect do  |element,index|
     if !(index == 1) 
-      element << "s"
+      element +="s"
     else 
-      array << element
+      element
     end
   end
 end
