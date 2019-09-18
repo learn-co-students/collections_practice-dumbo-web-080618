@@ -1,56 +1,60 @@
-require "pry"
-
 def sort_array_asc(array)
   array.sort
-end
+end 
 
 def sort_array_desc(array)
-  array.sort {|x,y| y<=>x}
-end
+  array.sort.reverse
+end 
 
 def sort_array_char_count(array)
-  array.sort_by(&:length)
-end
+  # array.sort_by {|el| el.length}
+  array.sort_by do |el|
+    el.length
+  end 
+end 
 
 def swap_elements(array)
-  element = array.slice!(1,1)
-  element = element.join(" ")
-  array[2] = element
-  return array 
-end
-
-def swap_elements_from_to(array,index,destination_index)
-  element = array.slice!(index,1)
-  element = element.join(" ")
-  array[destination_index] = element
-end
+  # x = array[1]
+  # y = array[2]
+  # array[1] = y
+  # array[2] = x
+  # array
+  array[1],array[2] =  array[2], array[1]
+  array
+end 
 
 def reverse_array(array)
   array.reverse
-end
+end 
 
 def kesha_maker(array)
   array.each do |name|
     name[2] = "$"
-  end
-  return array
-end
+  end 
+end 
 
 def find_a(array)
-  array.find_all {|string| string.start_with?('a')}
-end
+  #["apple", "oranges", "annie"]
+  #["oranges, "apple"]
+  array.select {|name| name[0] == "a"}
+  #if name[0] == "a"
+    #arr.push(name)
+end 
 
 def sum_array(array)
-  array.inject{|sum, n| sum + n }
-end
+  #array.reduce(:+)
+  array.inject {|acc,num| num + acc }
+end 
+
 
 def add_s(array)
-  array.each_with_index.collect do  |element,index|
-    if !(index == 1) 
-      element +="s"
-    else 
-      element
+  array.each.with_index do |name,index|
+    if index != 1
+      name << "s"
     end
-  end
-end
+  end 
+end 
+
+
+
 
